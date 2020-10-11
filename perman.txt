@@ -11,3 +11,7 @@ git commit -m "***"
 
 git add -A
 git commit -a -m "commiting all file -a" 
+
+git branch firstbranch
+git chechkout firstbranch
+

@@ -15,3 +15,9 @@ git commit -a -m "commiting all file -a"
 git branch firstbranch
 git chechkout firstbranch
 
+git add
+git cat ***.txt
+
+any branch 
+git rebase main (if in fb)
+git rebase firstbranch(if in main)

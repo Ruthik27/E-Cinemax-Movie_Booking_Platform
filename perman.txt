@@ -1,1 +1,13 @@
 first file
+git init
+git remote add origin ""
+git pull origin main
+
+
+git status 
+git add ****.txt
+git commit -m "***"
+
+
+git add -A
+git commit -a -m "commiting all file -a" 

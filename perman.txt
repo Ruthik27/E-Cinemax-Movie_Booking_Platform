@@ -1,16 +1,3 @@
-first file
-git init
-git remote add origin ""
-git pull origin main
-
-
-git status 
-git add ****.txt
-git commit -m "***"
-
-
-git add -A
-git commit -a -m "commiting all file -a" 
 
 git branch firstbranch
 git chechkout firstbranch
@@ -21,3 +8,29 @@ git cat ***.txt
 any branch 
 git rebase main (if in fb)
 git rebase firstbranch(if in main)
+
+create a folder on your deskstop where ever you like, then
+Rigth clcik inside the local folder and open git bash
+type:
+git init # this will create a local repository
+
+Now to clone your local repo with github repo:
+type:
+git remote add origin "@"
+where @ = the link of central repo,
+click on 'clone or download and u will get the link'
+copy paste the link at @
+
+pulling all the files to your local repo
+type:
+git pull origin main
+
+git status # give the changes tht you have not added to index
+git add ****.txt # will add the file you want to index
+git commit -m "***" # you need to commit a file after making changes
+
+git add -A #this will add all the files at once
+git commit -a -m "***" # this will commit all files at once
+
+git log #this will provide u the log of changes with the commit message
+

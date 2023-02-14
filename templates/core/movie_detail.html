@@ -1,0 +1,159 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-CinemaX</title>
+		<link rel="shortcut icon" type="image" href="icon2.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+		<link rel="stylesheet" type= "text/css"  href="{% static 'css/descriptionstyle.css' %}">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+			<a href="/" class="navbar-brand"><img src="{% static 'images/icon2.png' %}" class = "icon" width="50" height="50" class="d-inline-block align-top" alt="">E-CinemaX</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarMenu">
+				<form  action={% url 'filter_title' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<input name="search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<form  action={% url 'filter_category' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<div class="dropdown">
+						<select name="category" id="categorylist">
+							<option value>- select -</option>
+							<option value="action">Action</option>
+							<option value="animation">Animation</option>
+							<option value="comedy">Comedy</option>
+							<option value="drama">Drama</option>
+							<option value="horror">Horror</option>
+							<option value="thriller">Thriller</option>
+							<option value="war">War</option>
+						  </select>
+					</div>
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<ul class="navbar-nav ml-auto">
+					{% if user.is_authenticated %}
+					<li class="nav-item">
+						<a href="/user/profile"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>{{user.username}}</a>
+					</li>
+					<li class="nav-item">
+						<a href="/booking/booking_history"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>BOOKING HISTORY</a>
+					</li>
+					<li class="nav-item">
+						<a href="/logout" class="nav-link">LOGOUT</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a href="/login" class="nav-link">LOGIN</a>
+					</li>
+					<li class="nav-item">
+						<a href="/signup" class="nav-link">SIGN UP</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>         
+		</nav>
+
+	<div class="container-fluid my-container">
+		<br><br><br><br>
+		<h2 class = "header"><hr class = "mainHR">{{ movie.title }}<hr class = "mainHR"></h2>
+		<br>
+		<!-- <td class="badge badge-pill badge-success">Rating 9.8</td> -->
+		<table>
+			<tr>
+				<td style = "padding-right: 50px;">
+					<img width="300px" height="425px" src="/{{ movie.poster_image }}" alt="UNCHARTED">
+				</td>
+				<td style = "padding-left: 50px;">
+					<iframe width="700" height="425" src="{{ movie.trailer }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</td>
+			</tr>
+		</table>
+		<br><hr class = "mainHR"><br>
+	</div>
+	<div class="container my-container">
+		<table class= "table-style">
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>GENRE: </b>{{movie.category}}</td>
+				<td rowspan="9" style = "width: 62%; vertical-align: baseline;" class = "movie-description">
+					<b>DESCRIPTION:</b><br><br>{{ movie.synopsis }}
+				</td>
+			</tr>
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>DURATION: </b> 1h 56m</td>
+			</tr>
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>IS PLAYING: </b> {{movie.is_playing}}</td>
+			</tr>
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>DIRECTOR: </b> {{ movie.director }}</td>
+			</tr>
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>PRODUCER: </b> {{ movie.producer }}</td>
+			</tr>
+			<tr>
+				<td  style = "width: 35%; display: inline;" class = "movie-description"><b>CAST: </b>{{ movie.cast }} </td>
+			</tr>
+			<tr>
+				<td style = "width: 35%; display: inline;" class = "movie-description">
+					<button style = "background: gold; color: black; border-radius: 5px;"><b>RATING:</b> 6.3/10</button>
+				</td>
+			</tr>
+			<tr>
+				<td style = "width: 35%; display: inline;" class = "movie-description">
+					<button style = "background: tomato; color: black; border-radius: 5px;"><b>ROTTEN TOMATOES</b> 41%</button>
+				</td>
+			</tr>
+			<tr>
+				<td style = "width: 35%; display: inline;" class = "movie-description">
+					<button style = "background: black; color: white; border-radius: 5px;"><b>MPAA-US:</b>{{movie.rating}}</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="container-fluid my-container">
+		<br><hr class = "mainHR"><br>
+	</div>
+	<div class="container my-container">
+		<section>
+			<div style = "text-align: center;"><button class = "showTimeheader">SHOW TIMINGS</button></div>
+			<br><br>
+			<br>
+			<div class="row justify-content-between">
+				{% for show in shows %}
+				<div class="col-md-2 my-col">
+					<div class = "poster-title"><a href={% url "seat_list" show.id %} style = "color: white; background: black; padding: 10px; border-radius: 5px;">{{show.show_date}} - {{show.start_time}}</a></div>
+				</div>
+				{% endfor %}
+			</div>
+			<br><br>
+		</section>
+	</div>
+	<div class="container-fluid my-container">
+		<br><hr class = "mainHR"><br>
+	</div>
+	
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+				crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+				crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+				crossorigin="anonymous"></script>
+		<script src="myScript.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></div>{% endblock %}
+
+{% block content %}
+<form action={% url 'sendpromotion' %}  method="POST">
+    {% csrf_token %}
+<select id="promo" name="promo_code">
+    {% for promotion in promotions %}
+    <option value="{{promotion.promo_code}}">{{promotion.promo_code}}</option>
+    {% endfor %}
+  </select>
+<br>
+<br>
+  <button id="send_promo" style="width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  background-image: linear-gradient(to right, #F6AE2D , #FF7C53);
+  border: transparent;
+  margin-right: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;">Send Promotions</button>
+</form>
+
+{%if message%}
+<p>{{ message }}</p>
+{% endif %}
+{% endblock %}

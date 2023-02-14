@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+body {
+            background-color: #fffefe;
+        }
+          
+        
+        .pad{
+            width: 400px;
+            height: 700px;
+            background-image: linear-gradient(to bottom, #1A6290 , #04293C);
+            border-radius: 25px;
+            position: relative;
+            top:35px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            filter: drop-shadow(5px 5px 5px rgb(212, 212, 212));
+            color: white;
+            
+        }
+        h2{
+        font-size: 30px;
+        font-weight:900;
+        font-family: roboto;
+        color: white;
+        text-align: center;
+        display: inline;
+        }
+        p{
+        font-size: 15px;
+        font-weight:900;
+        font-family: roboto;
+        color: white;
+        line-height: normal;
+        }
+        .logincontainer{
+            top: 10%;
+            position: absolute;
+            width:400px;
+           
+        }
+        .button1{
+            top:20%;
+            border: 2px solid #FFFFFF;
+            width: 200px;
+            border-radius: 25px;
+            height: 50px;
+            background-color: transparent;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            
+}
+
+        .ebutton{
+            
+            border: 0px solid #FFFFFF;
+            width: 150px;
+            border-radius: 10px;
+            height: 30px;
+            background-color: rgba(38, 106, 184, 0.753);
+            color: white;
+            padding: 0px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: inline;
+            font-size: 16px;
+            margin-bottom: 20px;
+            /*float: right; */
+        }
+        .whiteContainer{
+            top: 20%;
+            position: absolute;
+            margin-left: 55%;
+            width: 250px;
+           
+        }
+
+        .darkerfont{
+            font-size: 30px;
+        font-weight:900;
+        font-family: roboto;
+        color: #04293C;
+        }
+        .drakerminifont{
+            font-size: 16px;
+        font-weight:900;
+        font-family: roboto;
+        color: #646464;
+        }
+
+        .orangebtn{
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, #F6AE2D , #FF7C53);
+            border: transparent;
+            margin-right: 15px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        input[type=text] {
+  
+        width: 250px;
+        height: 30px;
+        box-sizing: border-box;
+        border: none;
+        background-color: #33658A;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        
+        }
+
+        input[type=password] {
+  
+        width: 250px;
+        height: 30px;
+        box-sizing: border-box;
+        border: none;
+        background-color: #33658A;
+        margin-bottom: 10px;
+        padding-left: 10px;
+  
+        }
+        ::placeholder { 
+  color: white;
+  opacity: 1;
+}
+.bold{
+    font-weight: 800;
+    display: inline-block;
+    font-size: 15px;
+        font-weight:900;
+        font-family: roboto;
+        color: white;
+        line-height: normal;
+}
+
+.fieldset{
+    margin-left: 10px;
+}
+        
+</style>
+
+<script type="text/javascript">
+    function editclicked(){
+        document.getElementById("save").style.display="block";
+        event.preventDefault();
+
+        document.getElementById("editbutton").style.display="none";
+        document.getElementById("fname").contentEditable="true";
+        document.getElementById("lname").contentEditable="true";
+        document.getElementById("uname").contentEditable="true";
+
+    }
+    
+    function changepassword(){
+        event.preventDefault();
+        document.getElementById("pass").style.display="block";
+        
+    }
+    
+
+    function saveclicked(){
+        document.getElementById("editbutton").style.display="block";
+        document.getElementById("save").style.display="none";
+
+        document.getElementById("fname").contentEditable="false";
+        document.getElementById("lname").contentEditable="false";
+        document.getElementById("uname").contentEditable="false";
+
+        event.preventDefault();
+    }
+
+    function viewcardclicked(){
+        event.preventDefault();
+        document.getElementById("cardbox").style.display="block";
+        
+    }
+</script>
+</head>
+<body>
+<div class = "pad">
+    <div class = "logincontainer">
+    <form action={% url 'login' %}  method="POST">
+        <button class = "ebutton" id="editbutton" onclick="editclicked()" >Edit Profile</button><br>
+        <center><h2>Your Profile</h2></center>
+        <br>
+        <center>
+        <div style="display: block; width: 170px;">
+            <p contentEditable="false" id="fname">{{first_name}}</p>
+        </div>
+        </center>
+        <center><div style="display: block; width: 170px;"><p id="lname"  contentEditable="false">{{last_name}}</p></div></center>
+        <center><div style="display: block; width: 170px;"><p id="uname" contentEditable="false">{{ username }}</p></div></center>
+        <center><div style="display: block; width: 170px;"><p id="email"  contentEditable="false">{{ email }}</p></div></center>
+        <!--<center><button class = "button1">Edit Profile</button></center><br>-->
+        <br>
+        <center><a href><button class = "ebutton" id="save" style="display: none;" onclick="saveclicked()">Save</button></center>
+        <center><button class = "ebutton" id="editPasswordButton" style="width: 180px;" onclick="changepassword()">Change Password</button></center>
+        <center><button class = "ebutton" id="viewcard" onclick="viewcardclicked()">View Card</button></center>
+
+        <center><div style="display: none; color: white;" id="cardbox">
+        <fieldset style="border: 0px;">
+            <legend style="color: white;">Card Information</legend>
+            {% for card_number in credit_cards %}
+            <p style="color: white;">{{ card_number }}</p> <br>
+            {% endfor %}
+
+        </fieldset>
+        </div>
+        </center>
+
+        <div style="display: none;" id="pass">
+        <center><input type="password" name="oldpass" id="oldpass" placeholder="Old Password"></center>
+        <center><input type="password" name="newpass" id="newpass" placeholder="New Password"></center>
+        <center><input type="password" name="repass" id="repass" placeholder="Retype Password"></center>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>

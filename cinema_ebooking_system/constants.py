@@ -1,0 +1,5 @@
+USER_ROLE_CHOICES=(("premium", "Premium"), ("admin", "Admin"), ("normal", "Normal"))
+COUPON_TYPES=(("percent", "Percent"), ("amount", "Amount"))
+TICKET_TYPES=(("adult", "Adult"), ("child", "Child"), ("senior", "Senior"))
+CARD_TYPES=(("debit", "Debit"), ("credit","Credit"))
+CATEGORY=(("drama", "Drama"), ("action", "Action"), ("horror", "Horror"), ("thriller", "Thriller"), ("romance", "Romance"))

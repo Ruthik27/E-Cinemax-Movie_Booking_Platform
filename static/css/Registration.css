@@ -1,0 +1,60 @@
+body{
+	/* background-image: url("background.jpg"); */
+	background-color: #242333 !important;
+}
+.navbar-brand{
+	background-image: linear-gradient(to right, #483D8B, #8FBC8F); 
+	-webkit-background-clip: text;  
+	font-stretch: ultra-expanded; 
+	font-family:impact;
+	font-size: 40px;
+	color: transparent !important;
+}
+.navbar-brand:hover{
+	opacity: 0.7;
+}
+.bg-dark{
+	background-color: #222222 !important;
+}
+.icon{
+	vertical-align: middle !important;
+	margin-right: 10px;
+}
+hr {
+  background: linear-gradient(to right, #483D8B, #8FBC8F);
+  height: 5px;
+  width: 80%;
+  border-radius: 50%;
+}
+.title{
+	color: white;
+	font-family: verdana;
+	font-size: 25px;
+	text-align: center;
+	letter-spacing: 1.2px;
+	font-weight: bold;
+}
+.form-check-label{
+	color: white;
+}
+.styles{
+	justify-content: center;
+    display: grid;
+    margin: auto;
+}
+.btn-1{
+	background: #8FBC8F;
+	border: 1px solid #8FBC8F;
+}
+.btn-1:hover{
+	background: cornflowerblue;
+	border: 1px solid cornflowerblue;
+}
+.btn.btn-primary{
+	background: #8FBC8F;
+	border: 1px solid #8FBC8F;
+}
+.btn.btn-primary:hover{
+	background: cornflowerblue;
+	border: 1px solid cornflowerblue;
+}

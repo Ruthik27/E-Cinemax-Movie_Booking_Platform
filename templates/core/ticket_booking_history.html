@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-CinemaX</title>
+		<link rel="shortcut icon" type="image" href="icon2.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+		<link rel="stylesheet" type= "text/css" href="{% static 'css/bookingHistory.css' %}">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+			<a href="/" class="navbar-brand"><img src="{% static 'images/icon2.png' %}" class = "icon" width="50" height="50" class="d-inline-block align-top" alt="">E-CinemaX</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarMenu">
+				<form  action={% url 'filter_title' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<input name="search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<form  action={% url 'filter_category' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<div class="dropdown">
+						<select name="category" id="categorylist">
+							<option value>- select -</option>
+							<option value="action">Action</option>
+							<option value="animation">Animation</option>
+							<option value="comedy">Comedy</option>
+							<option value="drama">Drama</option>
+							<option value="horror">Horror</option>
+							<option value="thriller">Thriller</option>
+							<option value="war">War</option>
+						  </select>
+					</div>
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<ul class="navbar-nav ml-auto">
+					{% if user.is_authenticated %}
+					<li class="nav-item">
+						<a href="/user/profile"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>{{user.username}}</a>
+					</li>
+					<li class="nav-item">
+						<a href="/booking/booking_history"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>BOOKING HISTORY</a>
+					</li>
+					<li class="nav-item">
+						<a href="/logout" class="nav-link">LOGOUT</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a href="/login" class="nav-link">LOGIN</a>
+					</li>
+					<li class="nav-item">
+						<a href="/signup" class="nav-link">SIGN UP</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>         
+		</nav>
+
+		<br><br><br><br><hr><br>
+		<section>
+			<h2 class="header">BOOKING HISTORY</h2>
+		</section>
+		<br><hr><br>
+		{% for booking in bookings %}
+		<div class="container-fluid my-container">
+			<table>
+				<tr>
+					<td rowspan="4" width="30%"><img class="imageStyle" src="/{{ booking.show.movie.poster_image }}" alt="UNCHARTED"></td>
+					<td><div class="textStyle" style = "text-align: center;">BOOKING ID: {{ booking.id }}</div></td>
+					<td class= "padding"><div class="textStyle" style = "text-align: left;">SHOW DATE:{{ booking.show.show_date }}</div></td>
+				</tr>
+				<tr>
+					<td rowspan="3">
+						<div  class="textStyle" style = "text-align: center;">MOVIE TITLE:
+							<div class="movieTitle">
+								{{ booking.show.movie.title }}
+							</div>
+						</div>
+					</td>
+					<td><div class="textStyle" style = "text-align: left;">SHOW TIMING: {{ booking.show.start_time}}</div></td>
+				</tr>
+				<tr>
+					<td class= "padding"><div class="textStyle" style = "text-align: left;">TICKETS COUNT: {{ booking.no_of_ticket }}</div></td>
+				</tr>
+				<tr>
+					<td class= "padding"><div class="textStyle" style = "text-align: left;">TOTAL PRICE: ${{ booking.booking_total }}</div></td>
+				</tr>
+			</table>
+		</div>
+		{% endfor %}
+			
+		<br><hr><br>			
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
+		<script src="myScript.js"></script>
+	</body>
+</html>

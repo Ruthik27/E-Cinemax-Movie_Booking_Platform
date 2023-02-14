@@ -1,0 +1,353 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  padding: 2%;
+}
+
+a {
+  color: white;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: center;
+  position: relative;
+  left: 28%;
+  top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+  font-family: Roboto;
+}
+
+ a:hover{
+    text-shadow: 0px 0px 10px #FFFFFF;
+} 
+a:active{
+    text-shadow: 0px 0px 10px #FFFFFF;
+}
+a:visited{
+    text-shadow: 0px 0px 10px #FFFFFF;
+}
+.bgimg{
+  margin-top: 30px;
+  max-width:100%;
+  height: 400px;
+  background-image: url('/static/images/bgimg.jpg');
+
+  background-size: 100% 140%;
+  width: 100%;
+  left:0px;
+  top: 90px;
+  overflow-y: hidden;
+overflow-x: hidden;
+ 
+}
+h1{
+  color: white;
+  font-family: Roboto;
+  font-weight: bolder;
+  font-size: 60px;
+  
+  
+}
+
+h2{
+  color: white;
+  font-family: Roboto;
+  
+  font-size: 30px;
+}
+
+h3{
+  color: white;
+  font-family: Roboto;
+  font-size: 18px;
+ right: 10%;
+ word-wrap: break-word;
+ line-height: 20px;
+ 
+
+}
+.txtbannerpos{
+  left: 10%; 
+  top: 90px;
+  position: relative;
+  line-height: 15px;
+  margin-right: 90px;
+  position: relative;
+  width: 800px; 
+  word-wrap: break-word;
+  
+  
+}
+
+.button1{
+  border: 2px solid #FFFFFF;
+  width: 200px;
+  border-radius: 25px;
+  height: 50px;
+  background-color: transparent;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ 
+
+}
+.button5{
+  border: 2px solid #FFFFFF;
+  width: 100px;
+  border-radius: 25px;
+  height: auto;
+  background-color: transparent;
+  color: white;
+  padding: 1px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ 
+
+}
+.button2{
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  background-image: linear-gradient(to right, #F6AE2D , #FF7C53);
+  border: transparent;
+  margin-right: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+
+.mySlides {
+  display: none;
+}
+.nametitle{
+  color: #2F4858;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 40px;
+  
+}
+.darktext1{
+  color: #2F4858;
+  font-family: Roboto;
+  margin-right: 95%;
+  font-size: 20px;
+  margin-top: -50px;
+  
+}
+input[type=text] {
+  
+  width: 250px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 40px;  
+  /*box-sizing: border-box;
+  border: none;*/
+  background-color: rgb(228, 228, 228);
+  float: left;
+  margin-left: 5%;
+  /*margin-top: -50px;*/
+  padding-left: 10px;
+
+  
+}
+
+.navbar{
+  position: absolute;
+  font-family: Roboto;
+  width:100%;
+  height: 50px;
+  left:0px;
+  top:0px;
+  
+  background-image: linear-gradient(to right, #1A6290 , #04293C);
+}
+
+.section1{
+  margin-top: 0px;
+  width: 100%;
+  height: fit-content;
+  margin-left: 30px;
+  overflow: hidden;
+  
+}
+
+.comingsooncontainer{
+  display: inline;
+}
+
+.nowshowingcontainer{
+  display: inline-flex
+}
+
+.searchsection{
+  margin-top: 0px;
+  width: 100%;
+  height: fit-content;
+  margin-left: 30px;
+  overflow: hidden;
+  display: flex
+  
+}
+
+.container {
+    display: inline-block;
+
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: relative;
+  top: 30%;
+  width: 8px;
+  padding: 16px;
+  margin-top: -2px;
+  color: white;
+  font-weight: bold;
+  font-size: 38px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 1%;
+  margin-right: 64%;
+}
+
+/* Position the "next button" to the right */
+.next {
+  
+  border-radius: 3px 0 0 3px;
+  
+  right:90%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.darkerh2{
+  color: #04293C;
+  font-family: Roboto;
+  font-size: 45px;
+}
+
+.btnmove{
+  float:right;
+  
+}
+
+.homeloginbtn{
+  width: 150px;
+  height: 35px;
+  border-radius: 25px;
+  background-image: linear-gradient(to right, #F6AE2D , #FF7C53);
+  border: transparent;
+  margin-right: 25px;
+  color: white;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin-top: 9px;
+  font-weight: 900;
+  
+  
+}
+
+.dropdown{
+  padding-left: 30px;
+  font-family: Roboto;
+  font-size: 18px;
+  
+}
+
+.movieselection {
+  position: relative;
+  margin-top: 10px;
+  height: fit-content;
+  display: inline-block;
+  float: none;
+}
+
+.selection-container {
+  margin-top: 15px;
+  width: 100%;
+  position: relative;
+  display: block;
+  float: none;
+  
+}
+
+.column {
+  float: left;
+  position: relative;
+padding-left: 30px;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

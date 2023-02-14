@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>E-CinemaX</title>
+		<link rel="shortcut icon" type="image" href="icon2.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+		<link rel="stylesheet" type= "text/css" href="{% static 'css/Registration.css' %}">
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+			<a href="/" class="navbar-brand"><img src="{% static 'images/icon2.png' %}" class = "icon" width="50" height="50" class="d-inline-block align-top" alt="">E-CinemaX</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarMenu">
+				<form  action={% url 'filter_title' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<input name="search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<form  action={% url 'filter_category' %}  method="POST" class="form-inline ml-lg-5">
+					{% csrf_token %}
+					<!--<input class="form-control mr-2" type="search" placeholder="Search Movies" aria-label="Search">
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button> -->
+					<div class="dropdown">
+						<select name="category" id="categorylist">
+							<option value>- select -</option>
+							<option value="action">Action</option>
+							<option value="animation">Animation</option>
+							<option value="comedy">Comedy</option>
+							<option value="drama">Drama</option>
+							<option value="horror">Horror</option>
+							<option value="thriller">Thriller</option>
+							<option value="war">War</option>
+						  </select>
+					</div>
+					<button class="btn btn-outline-light my-2" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<ul class="navbar-nav ml-auto">
+					{% if user.is_authenticated %}
+					<li class="nav-item">
+						<a href="/user/profile"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>{{user.username}}</a>
+					</li>
+					<li class="nav-item">
+						<a href="/booking/booking_history"class="nav-link"><i class="fas fa-user" style="margin-right: 10px"></i>BOOKING HISTORY</a>
+					</li>
+					<li class="nav-item">
+						<a href="/logout" class="nav-link">LOGOUT</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a href="/login" class="nav-link">LOGIN</a>
+					</li>
+					<li class="nav-item">
+						<a href="/signup" class="nav-link">SIGN UP</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>         
+		</nav>
+	<div class="container-fluid my-container">
+		<br><br><br><br>
+		<div class="title"><br>EDIT PAYMENT CARD DETAILS</div>
+		<br><hr><br>
+	</div>
+
+	<form method="POST" class="col-lg-8 off offset-lg-1 styles">
+		{% csrf_token %}
+	<div class="form-row required">
+    <div class="form-group required col-md-6">
+      <label class="control-label" style = "color:white" for="inputName4">Name on card</label>
+      <input type="text" name="card_name"  value="{{card_name}}" required class="form-control" id="inputName4"  required>
+	  <small class="text-muted form-check-label">Full name as displayed on card</small>
+    </div>
+    <div class="form-group required col-md-6">
+      <label class="control-label"  style = "color:white"  for="inputLast4">Credit card number</label>
+      <input type="text" name="card_number" value="{{card_number}}" required class="form-control" id="inputLast4" value="" required>
+    </div>
+	<div class="col-md-3">
+		<label for="cc-expiration" class="form-label form-check-label">Card Type</label>
+		<input type="text" name="card_type" class="form-control" value="{{card_type}}"  id="cc-expiration" placeholder="" required>
+		<div class="invalid-feedback form-check-label">
+		  Card type required
+		</div>
+	  </div>
+
+            <div class="col-md-3">
+              <label for="cc-expiration" class="form-label form-check-label">Expiration</label>
+              <input type="text" name="expiration_date" value="{{card_expiration_date}}" class="form-control" id="cc-expiration" placeholder="" required>
+              <div class="invalid-feedback form-check-label">
+                Expiration date required
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label form-check-label">Billing Address</label>
+              <input type="text" name="billing_address" class="form-control" value="{{card_billing_address}}" id="cc-cvv" placeholder="" required>
+              <div class="invalid-feedback form-check-label">
+                Billing Address
+              </div>
+            </div>
+  </div>
+  <br />
+  <button type="submit"  class="btn btn-primary">SAVE CHANGES</button><br>
+  {% if message %}
+<div id = "message"><center><p class="m" style="color: red; font-size: 13px"> {{ message }} </p> </center></div>
+{% endif %}
+
+</form>
+
+<div class="container-fluid my-container">
+
+			<br><br><hr><br>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
+		<script src="myScript.js"></script>
+</body>
+</html>

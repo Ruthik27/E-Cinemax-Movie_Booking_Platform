@@ -1,0 +1,96 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<style>
+
+</style>
+</head>
+<body>
+<div class="navbar">
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="#news">Categories</a></li>
+  <li><a href="#contact">Theatre Location</a></li>
+  <li><a href="#about">Account</a></li>
+  <li><a href="#contact" class = "button1">Login</a></li>
+</ul>
+
+<div class = "bgimg">
+ 
+  <div class="mySlides fade">
+   
+  <div class = "txtbannerpos">
+    
+    <h2>Movie rating</h2>
+    <h1>Movie Title</h1>
+    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget ex aliquet, dignissim urna id, varius felis. Sed tristique neque porta elit tincidunt, vel posuere tellus porttitor.</h3>
+
+    <button class = "button2">Book Ticket</button>
+    <button class = "button1">Learn more</button>
+    
+  </div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>  
+   
+  <br><br><br><br><br><br>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+</div>
+
+</div>
+<div class = "section1">
+<div class = "darkerh2">Movie Selection</div>
+<input type="text" id="address" name="address" placeholder="Enter your address/zipcode">
+<div class="btnmove"><div class = "darktext1">Select Time</div></div>
+<hr>
+</div>
+
+   
+</div>
+</div>
+
+</div>
+
+
+ 
+  
+
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+</body>
+</html>

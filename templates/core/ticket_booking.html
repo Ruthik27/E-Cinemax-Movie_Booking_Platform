@@ -1,0 +1,387 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <script src="{% static 'js/script.js' %}"></script>   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Seat Selection</title>
+  </head>
+  <body >
+    
+    
+    <div class="movie-container">
+      <label>Select Seat Type:</label>
+      <select id="movie">
+        <option value="12">ADULT($12)</option>
+        <option value="10">SENIOR($10)</option>
+        <option value="8">CHILD($8)</option>
+      </select>
+    </div>
+
+
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>Empty</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
+    </ul>
+
+   
+
+    <div class="container">
+      <div class="screen"></div>
+      
+
+      <div class="row">
+        <div class="seat" id="A1" name="row" value="A1">A1</div>
+        <div class="seat" id="A2" name="row" value="A2">A2</div>
+        <div class="seat" id="A3" name="row" value="A3">A3</div>
+        <div class="seat" id="A4" name="row" value="A4">A4</div>
+        <div class="seat" id="A5" name="row" value="A5">A5</div>
+        <div class="seat" id="A6" name="row" value="A6">A6</div>
+        <div class="seat" id="A7"name="row" value="A7">A7</div>
+        <div class="seat" id="A8" name="row" value="A8">A8</div>
+        <div class="seat" id="A9" name="row" value="A9">A9</div>
+        <div class="seat" id="A10" name="row" value="A10">A10</div>
+        <div class="seat" id="A11" name="row" value="A11">A11</div>
+        <div class="seat" id="A12" name="row" value="A12">A12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="B1" name="row" value="B1">B1</div>
+        <div class="seat" id="B2" name="row" value="B2">B2</div>
+        <div class="seat" id="B3" name="row" value="B3">B3</div>
+        <div class="seat" id="B4" name="row" value="B4">B4</div>
+        <div class="seat" id="B5" name="row" value="B5">B5</div>
+        <div class="seat" id="B6" name="row" value="B6">B6</div>
+        <div class="seat" id="B7" name="row" value="B7">B7</div>
+        <div class="seat" id="B8" name="row" value="B8">B8</div>
+        <div class="seat" id="B9" name="row" value="B9">B9</div>
+        <div class="seat" id="B10" name="row" value="B10">B10</div>
+        <div class="seat" id="B11" name="row" value="B11">B11</div>
+        <div class="seat" id="B12" name="row" value="B12">B12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="C1" name="row" value="C1">C1</div>
+        <div class="seat" id="C2" name="row" value="C2">C2</div>
+        <div class="seat" id="C3" name="row" value="C3">C3</div>
+        <div class="seat" id="C4" name="row" value="C4">C4</div>
+        <div class="seat" id="C5" name="row" value="C5">C5</div>
+        <div class="seat" id="C6" name="row" value="C6">C6</div>
+        <div class="seat" id="C7" name="row" value="C7">C7</div>
+        <div class="seat" id="C8" name="row" value="C8">C8</div>
+        <div class="seat" id="C9" name="row" value="C9">C9</div>
+        <div class="seat" id="C10" name="row" value="C10">C10</div>
+        <div class="seat" id="C11" name="row" value="C11">C11</div>
+        <div class="seat" id="C12" name="row" value="C12">C12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="D1" name="row" value="D1">D1</div>
+        <div class="seat" id="D2" name="row" value="D2">D2</div>
+        <div class="seat" id="D3" name="row" value="D3">D3</div>
+        <div class="seat" id="D4" name="row" value="D4">D4</div>
+        <div class="seat" id="D5" name="row" value="D5">D5</div>
+        <div class="seat" id="D6" name="row" value="D6">D6</div>
+        <div class="seat" id="D7" name="row" value="D7">D7</div>
+        <div class="seat" id="D8" name="row" value="D8">D8</div>
+        <div class="seat" id="D9" name="row" value="D9">D9</div>
+        <div class="seat" id="D10" name="row" value="D10">D10</div>
+        <div class="seat" id="D11" name="row" value="D11">D11</div>
+        <div class="seat" id="D12" name="row" value="D12">D12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="E1" name="row" value="E1">E1</div>
+        <div class="seat" id="E2" name="row" value="E2">E2</div>
+        <div class="seat" id="E3" name="row" value="E3">E3</div>
+        <div class="seat" id="E4" name="row" value="E4">E4</div>
+        <div class="seat" id="E5" name="row" value="E5">E5</div>
+        <div class="seat" id="E6" name="row" value="E6">E6</div>
+        <div class="seat" id="E7" name="row" value="E7">E7</div>
+        <div class="seat" id="E8" name="row" value="E8">E8</div>
+        <div class="seat" id="E9" name="row" value="E9">E9</div>
+        <div class="seat" id="E10" name="row" value="E10">E10</div>
+        <div class="seat" id="E11" name="row" value="E11">E11</div>
+        <div class="seat" id="E12" name="row" value="E12">E12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="F1" name="row" value="F1">F1</div>
+        <div class="seat" id="F2" name="row" value="F2">F2</div>
+        <div class="seat" id="F3" name="row" value="F3">F3</div>
+        <div class="seat" id="F4" name="row" value="F4">F4</div>
+        <div class="seat" id="F5" name="row" value="F5">F5</div>
+        <div class="seat" id="F6" name="row" value="F6">F6</div>
+        <div class="seat" id="F7" name="row" value="F7">F7</div>
+        <div class="seat" id="F8" name="row" value="F8">F8</div>
+        <div class="seat" id="F9" name="row" value="F9">F9</div>
+        <div class="seat" id="F10" name="row" value="F10">F10</div>
+        <div class="seat" id="F11" name="row" value="F11">F11</div>
+        <div class="seat" id="F12" name="row" value="F12">F12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="G1" name="row" value="G1">G1</div>
+        <div class="seat" id="G2" name="row" value="G2">G2</div>
+        <div class="seat" id="G3" name="row" value="G3">G3</div>
+        <div class="seat" id="G4" name="row" value="G4">G4</div>
+        <div class="seat" id="G5" name="row" value="G5">G5</div>
+        <div class="seat" id="G6" name="row" value="G6">G6</div>
+        <div class="seat" id="G7"name="row" value="G7">G7</div>
+        <div class="seat" id="G8" name="row" value="G8">G8</div>
+        <div class="seat" id="G9" name="row" value="G9">G9</div>
+        <div class="seat" id="G10" name="row" value="G10">G10</div>
+        <div class="seat" id="G11" name="row" value="G11">G11</div>
+        <div class="seat" id="G12" name="row" value="G12">G12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="H1" name="row" value="H1">H1</div>
+        <div class="seat" id="H2" name="row" value="H2">H2</div>
+        <div class="seat" id="H3" name="row" value="H3">H3</div>
+        <div class="seat" id="H4" name="row" value="H4">H4</div>
+        <div class="seat" id="H5" name="row" value="H5">H5</div>
+        <div class="seat" id="H6" name="row" value="H6">H6</div>
+        <div class="seat" id="H7" name="row" value="H7">H7</div>
+        <div class="seat" id="H8" name="row" value="H8">H8</div>
+        <div class="seat" id="H9" name="row" value="H9">H9</div>
+        <div class="seat" id="H10" name="row" value="H10">H10</div>
+        <div class="seat" id="H11" name="row" value="H11">H11</div>
+        <div class="seat" id="H12" name="row" value="H12">H12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="I1" name="row" value="I1">I1</div>
+        <div class="seat" id="I2" name="row" value="I2">I2</div>
+        <div class="seat" id="I3" name="row" value="I3">I3</div>
+        <div class="seat" id="I4" name="row" value="I4">I4</div>
+        <div class="seat" id="I5" name="row" value="I5">I5</div>
+        <div class="seat" id="I6" name="row" value="I6">I6</div>
+        <div class="seat" id="I7" name="row" value="I7">I7</div>
+        <div class="seat" id="I8" name="row" value="I8">I8</div>
+        <div class="seat" id="I9" name="row" value="I9">I9</div>
+        <div class="seat" id="I10" name="row" value="I10">I10</div>
+        <div class="seat" id="I11" name="row" value="I11">I11</div>
+        <div class="seat" id="I12" name="row" value="I12">I12</div>
+      </div>
+      <div class="row">
+        <div class="seat" id="J1" name="row" value="J1">J1</div>
+        <div class="seat" id="J2" name="row" value="J2">J2</div>
+        <div class="seat" id="J3" name="row" value="J3">J3</div>
+        <div class="seat" id="J4" name="row" value="J4">J4</div>
+        <div class="seat" id="J5" name="row" value="J5">J5</div>
+        <div class="seat" id="J6" name="row" value="J6">J6</div>
+        <div class="seat" id="J7" name="row" value="J7">J7</div>
+        <div class="seat" id="J8" name="row" value="J8">J8</div>
+        <div class="seat" id="J9" name="row" value="J9">J9</div>
+        <div class="seat" id="J10" name="row" value="J10">J10</div>
+        <div class="seat" id="J11" name="row" value="J11">J11</div>
+        <div class="seat" id="J12" name="row" value="J12">J12</div>
+      </div>
+    </div>
+  
+
+    <p class="text">
+      Total price for <span id="count">0</span> seats is $<span
+        id="total"
+        >0</span
+      >
+    </p>
+
+      <select id="promo" onchange="apply_discount(this)"> 
+        <p>Apply Promo</p>
+        <option disabled selected value> -- Apply Promo -- </option>
+        {% for promo in promotions %}
+        <option value="{{promo.off_percent}}"> {{promo.promo_code}} </option>
+        {% endfor %}
+      </select>
+    <br>
+    <form action={% url 'create-checkout-session' %}  method="POST">
+      {% csrf_token %}
+      <input type="text" value="{{ show.id }}" name="id" style="display: none;"></input>
+      <input type="text" id="discount" value="" name="disc_price" style="display: none;"></input>
+      <button class= button2 >PROCEED</button>
+    </form>
+    
+    <p id="msg">  </p>
+
+  </body>
+  <script>
+    const container = document.querySelector('.container');
+    const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+    const count = document.getElementById('count');
+    var total = document.getElementById('total');
+    const movieSelect = document.getElementById('movie');
+
+    populateUI();
+
+    let ticketPrice = +movieSelect.value;
+
+    // Save selected movie index and price
+    function setMovieData(movieIndex, moviePrice) {
+      localStorage.setItem('selectedMovieIndex', movieIndex);
+      localStorage.setItem('selectedMoviePrice', moviePrice);
+    }
+
+    // Update total and count
+    function updateSelectedCount() {
+      const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+      const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+
+      localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+
+      const selectedSeatsCount = selectedSeats.length;
+
+      count.innerText = selectedSeatsCount;
+      total.innerText = selectedSeatsCount * ticketPrice;
+      
+      setMovieData(movieSelect.selectedIndex, movieSelect.value);
+    }
+
+    // Get data from localstorage and populate UI
+    function populateUI() {
+      const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
+      if (selectedSeats !== null && selectedSeats.length > 0) {
+        seats.forEach((seat, index) => {
+          if (selectedSeats.indexOf(index) > -1) {
+            seat.classList.add('selected');
+          }
+        });
+      }
+
+      const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+
+      if (selectedMovieIndex !== null) {
+        movieSelect.selectedIndex = selectedMovieIndex;
+      }
+    }
+
+    // Movie select event
+    movieSelect.addEventListener('change', e => {
+      ticketPrice = +e.target.value;
+      setMovieData(e.target.selectedIndex, e.target.value);
+      updateSelectedCount();
+    });
+
+    // Seat click event
+    container.addEventListener('click', e => {
+      debugger;
+      if (
+        e.target.classList.contains('seat') &&
+        !e.target.classList.contains('occupied')
+      ) {
+        e.target.classList.toggle('selected');
+        if (e.target.classList.contains('selected')){
+          console.log(e.target.innerText);
+          createTicket(e.target.innerText);
+
+        }
+        else{
+          deleteTicket(e.target.innerText);
+        }
+        updateSelectedCount();
+      }
+    });
+
+    function apply_discount(promo){
+      const selectedSeats = document.querySelectorAll('.row .seat.selected');
+      const selectedSeatsCount = selectedSeats.length;
+      discount = promo.value;
+      price = selectedSeatsCount * ticketPrice
+      total.innerText = price - (price * discount/100);
+      document.getElementById('discount').value = price - (price * discount/100);
+    }
+
+    function createTicket(value){
+      var price = document.getElementById('movie').value;
+      var id = "{{ show.id }}"
+      console.log(id);
+      $.ajax({
+      type: "POST",
+      url: '/movies/ticket_create',
+      data: {
+        'id':id,
+        'row':value,
+        'price':price,
+        'csrfmiddlewaretoken':"{{ csrf_token }}"
+      },
+      success: function () {
+        
+      }
+    });
+    }
+
+
+    function deleteTicket(value){
+      var price = document.getElementById('movie').value;
+      var id = "{{ show.id }}"
+      $.ajax({
+      type: "POST",
+      url: '/movies/ticket_delete',
+      data: {
+        'id':id,
+        'row':value,
+        'price':price,
+        'csrfmiddlewaretoken':"{{ csrf_token }}"
+      },
+      success: function () {
+        $('#message').html("<h2>Contact Form Submitted!</h2>")
+      }
+    });
+
+    }
+
+    function createBooking(){
+      const selectedSeats = document.querySelectorAll('.row .seat.selected');
+      var id = "{{ show.id }}"
+      $.ajax({
+      type: "POST",
+      url: '/movies/create-checkout-session',
+      data: {
+        'id':id,
+        'disc_price':10,
+        'csrfmiddlewaretoken':"{{ csrf_token }}"
+      },
+      success: function (e) {
+        
+      }
+    });  
+    }
+    // Initial count and total set
+    updateSelectedCount();
+
+    function getBookedSeats(){
+      var id = "{{ show.id }}"
+      $.ajax({
+      url: "/movies/get_booking",
+      type: "POST",
+      data: {
+        'id':id,
+        'csrfmiddlewaretoken':"{{ csrf_token }}"
+      },
+      dataType: "json",
+      success: function (data) {
+          var row_list = data.occupied_seats;
+          row_list.forEach((obj, index) => {
+            var element = document.getElementById(obj);
+            element.classList.add("occupied");
+          });
+      }
+    });
+    }
+    getBookedSeats();
+
+    window.onbeforeunload = function (e) {
+      localStorage.clear();
+    };
+  </script>
+  </html>

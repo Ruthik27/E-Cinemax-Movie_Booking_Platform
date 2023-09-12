@@ -19,6 +19,33 @@ The Cinema E-Booking System is a state-of-the-art platform designed for movie en
 
 6. **Promotions and Offers**: Keep an eye out for special promotions, discounts, and offers. Whether it's a festive discount or a weekday special, we make sure you get the best deal.
 
+## Modules
+
+1. **🌐 Core Functionalities**:
+   - 🙋‍♂️ Custom user profiles with extended attributes.
+   - 🔑 Enhanced user authentication processes.
+   - 📧 Comprehensive email utilities for user notifications and verifications.
+
+2. **🎥 Movie Functionalities**:
+   - 📜 Detailed movie listings including descriptions, posters, and showtimes.
+   - 🔍 Efficient search and filter mechanisms.
+
+3. **🎟 Ticket Booking**:
+   - 🛒 Seamless ticket booking experience.
+   - 📔 Personalized booking history for users.
+
+4. **💳 Card Management**:
+   - 🔒 Secure storage and retrieval of credit card details.
+   - 🚫 Option to remove saved cards with a click.
+
+5. **💰 Payments**:
+   - 💼 Integrated payment gateways like Stripe and Braintree.
+   - 🧾 Instant payment receipts and confirmations.
+
+6. **🔐 Security**:
+   - 🛡 Advanced cryptographic functions ensuring data safety.
+   - 🔒 Encrypted keys for maximum security.
+
 ## 🔧 Setup and Installation Instructions
 
 1. **📥 Clone the Repository**:

@@ -50,8 +50,8 @@ The Cinema E-Booking System is a state-of-the-art platform designed for movie en
 
 1. **📥 Clone the Repository**:
    ```
-   git clone [your-repo-link]
-   cd [your-repo-name]
+   git clone https://github.com/Ruthik27/E-Cinemax-Movie_Booking_Platform/
+   cd E-Cinemax-Movie_Booking_Platform
    ```
 
 2. **📦 Install Dependencies**:

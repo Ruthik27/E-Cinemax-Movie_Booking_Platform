@@ -74,3 +74,7 @@ The Cinema E-Booking System is a state-of-the-art platform designed for movie en
 ## 📝 Note
 
 Always ensure your Python environment is set up correctly, and virtual environments are used where necessary. Keep your secret keys and sensitive information out of version control.
+
+## License 📜
+
+📌 This project is licensed under the [MIT License](LICENSE)
